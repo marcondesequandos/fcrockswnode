@@ -12,11 +12,9 @@ services:
     networks:
       - node-network
     volumes:
+      - /usr/src/app/node_modules
       - ./node:/usr/src/app
     tty: true
-    ports:
-     [3000:3000]
-    #porta 3000 local aponta para porta 3000 do container
     depends_on:
       [db]
       

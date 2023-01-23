@@ -1,11 +1,6 @@
 FROM nginx:1.15.0-alpine
 
-#deleta conf default para colocar a conf editada
-
 RUN rm /etc/nginx/conf.d/default.conf
 COPY nginx.conf /etc/nginx/conf.d
 
-#RUN mkdir /var/www/laravel/public -p && touch /var/www/laravel/public/index.php
 
-
-# RUN mkdir /usr/src/app -p

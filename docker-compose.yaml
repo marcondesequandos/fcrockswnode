@@ -1,6 +1,6 @@
-version: '3'
+version: '3.9'
 
-services: 
+services:
 
   app:
     build:
@@ -17,7 +17,7 @@ services:
     tty: true
     depends_on:
       [db]
-      
+
   db:
     image: mysql:5.7
     command: --innodb-use-native-aio=0
@@ -26,12 +26,12 @@ services:
     restart: always
     #para conseguir rodar comandos de forma interativa
     tty: true
-    volumes: 
+    volumes:
       - ./mysql:/var/lib/mysql
     environment:
       - MYSQL_DATABASE=nodedb
       - MYSQL_ROOT_PASSWORD=root
-    networks: 
+    networks:
       - node-network
 
   nginx:
@@ -43,7 +43,7 @@ services:
     hostname: nginx
     networks:
      - node-network
-    ports: 
+    ports:
       - "8080:80"
     depends_on:
       [db, app]
